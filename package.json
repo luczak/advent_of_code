@@ -1,0 +1,13 @@
+{
+  "name": "advent_of_code",
+  "version": "1.0.0",
+  "description": "Node.js solutions for various advent of code editions",
+  "type": "module",
+  "main": "2015/day1/basement-task.js",
+  "scripts": {},
+  "author": "Michal Luczak <michal.luczaak@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "7.23.0"
+  }
+}
