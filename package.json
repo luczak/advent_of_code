@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Node.js solutions for various advent of code editions",
   "type": "module",
-  "main": "2015/day1/basement-task.js",
+  "main": "2015/day1/part-two.js",
   "scripts": {},
   "author": "Michal Luczak <michal.luczaak@gmail.com>",
   "license": "ISC",
