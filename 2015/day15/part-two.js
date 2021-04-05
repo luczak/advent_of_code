@@ -6,8 +6,8 @@ const dirPath = getDirPath(import.meta.url);
 const input = await readTextFile(path.resolve(dirPath, 'input.txt'));
 const details = input.split('\n');
 const ingredients = details.map(ingredient => {
-    const [capacity, durability, texture, flavor] = ingredient.match(/-?\d+/g).map(Number);
-    return { capacity, durability, texture, flavor };
+    const [capacity, durability, texture, flavor, calories] = ingredient.match(/-?\d+/g).map(Number);
+    return { capacity, durability, texture, flavor, calories };
 });
 
 const quantities = new Array(ingredients.length).fill(0);
@@ -22,7 +22,9 @@ function redistribute(combination) {
     const string = JSON.stringify(combination);
     if (combinations.has(string) || combination.some(n => n < 0)) { return; }
     combinations.add(string);
-    maxScore = Math.max(maxScore, calculateScore(combination));
+    if (calculateCalories(combination) === 500) {
+        maxScore = Math.max(maxScore, calculateScore(combination));
+    }
     for (let i = 0; i < ingredients.length; i++) {
         const copy = [...combination];
         copy[0]--;
@@ -42,3 +44,6 @@ function calculateScore(quantities) {
     return Math.max(capacity, 0) * Math.max(durability, 0) * Math.max(texture, 0) * Math.max(flavor, 0);
 }
 
+function calculateCalories(quantities) {
+    return ingredients.reduce((sum, { calories }, i) => sum + calories * quantities[i], 0);
+}
