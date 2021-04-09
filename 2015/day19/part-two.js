@@ -18,7 +18,8 @@ transform(molecule);
 console.log(minSteps);
 
 function transform(current, step = 0) {
-    if (step > minSteps || results.has(current)) {
+    minLength = Math.min(current.length, minLength);
+    if (step > minSteps || current.length > minLength || results.has(current)) {
         return;
     }
     results.add(current);
@@ -27,9 +28,6 @@ function transform(current, step = 0) {
         return;
     }
     for (const [k, v] of transformations) {
-        const replaced = current.replace(k, v);
-        minLength = Math.min(replaced.length, minLength);
-        if (replaced.length > minLength) { continue; }
         transform(current.replace(k, v), step + 1);
     }
 }
