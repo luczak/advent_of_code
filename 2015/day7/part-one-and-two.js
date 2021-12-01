@@ -1,5 +1,5 @@
-import { getDirPath } from "../get-dir-path.js";
-import { readTextFile } from "../read-text-file.js";
+import { getDirPath } from "../../common/get-dir-path.js";
+import { readTextFile } from "../../common/read-text-file.js";
 import path from "path";
 
 const dirPath = getDirPath(import.meta.url);
