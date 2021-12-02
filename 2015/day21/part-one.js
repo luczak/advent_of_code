@@ -1,6 +1,4 @@
-import { getDirPath } from "../../common/get-dir-path.js";
-import { readTextFile } from "../../common/read-text-file.js";
-import * as path from "path";
+import { readInput } from "../../common/read-input.js";
 
 const itemShop = {
     weapons: [
@@ -31,8 +29,7 @@ const itemShop = {
 }
 const basePlayer = { hp: 100, dmg: 0, def: 0 };
 
-const dirPath = getDirPath(import.meta.url);
-const input = await readTextFile(path.resolve(dirPath, 'input.txt'));
+const input = await readInput(import.meta.url, './input.txt');
 const [hp, dmg, def] = input.match(/\d+/g).map(Number);
 const enemy = { hp, dmg, def };
 let minSpending = Infinity;

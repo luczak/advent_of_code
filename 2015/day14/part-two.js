@@ -1,11 +1,9 @@
-import path from "path";
-import { getDirPath } from "../../common/get-dir-path.js";
-import { readTextFile } from "../../common/read-text-file.js";
+import { readInput } from "../../common/read-input.js";
 
 const RACE_DURATION = 2503;
 
 const dirPath = getDirPath(import.meta.url);
-const input = await readTextFile(path.resolve(dirPath, 'input.txt'));
+const input = await readInput(import.meta.url, './input.txt');
 const instructions = input.split('\n');
 const reindeer = instructions.map(instruction => {
     const [speed, duration, rest] = instruction.match(/\d+/g).map(Number);

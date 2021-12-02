@@ -1,6 +1,4 @@
-import path from "path";
-import { getDirPath } from "../../common/get-dir-path.js";
-import { readTextFile } from "../../common/read-text-file.js";
+import { readInput } from "../../common/read-input.js";
 
 const spells = [
     { cost: 53, dmg: 4, name: 'missile' },
@@ -11,8 +9,7 @@ const spells = [
 ]
 const basePlayer = { mana: 500, hp: 50, armor: 0, manaUsed: 0, effects: [] };
 
-const dirPath = getDirPath(import.meta.url);
-const input = await readTextFile(path.resolve(dirPath, 'input.txt'));
+const input = await readInput(import.meta.url, './input.txt');
 const [hp, dmg] = input.match(/\d+/g).map(Number);
 const baseBoss = { hp, dmg };
 let minMana = Infinity;

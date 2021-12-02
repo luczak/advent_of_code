@@ -1,9 +1,6 @@
-import { getDirPath } from "../../common/get-dir-path.js";
-import { readTextFile } from "../../common/read-text-file.js";
-import path from "path";
+import { readInput } from "../../common/read-input.js";
 import { mineCoin } from "./mine-coin.js";
 
-const dirPath = getDirPath(import.meta.url);
-const secretKey = await readTextFile(path.resolve(dirPath, 'input.txt'));
+const secretKey = await readInput(import.meta.url, './input.txt');
 const result = mineCoin(secretKey, 6);
 console.log(result);

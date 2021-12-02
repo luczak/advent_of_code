@@ -1,9 +1,6 @@
-import path from "path";
-import { getDirPath } from "../../common/get-dir-path.js";
-import { readTextFile } from "../../common/read-text-file.js";
+import { readInput } from "../../common/read-input.js";
 
-const dirPath = getDirPath(import.meta.url);
-const input = await readTextFile(path.resolve(dirPath, 'input.txt'));
+const input = await readInput(import.meta.url, './input.txt');
 const details = input.split('\n');
 const ingredients = details.map(ingredient => {
     const [capacity, durability, texture, flavor, calories] = ingredient.match(/-?\d+/g).map(Number);

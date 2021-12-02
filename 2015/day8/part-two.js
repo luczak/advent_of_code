@@ -1,9 +1,6 @@
-import { getDirPath } from "../../common/get-dir-path.js";
-import { readTextFile } from "../../common/read-text-file.js";
-import path from "path";
+import { readInput } from "../../common/read-input.js";
 
-const dirName = getDirPath(import.meta.url);
-const input = await readTextFile(path.resolve(dirName, 'input.txt'));
+const input = await readInput(import.meta.url, './input.txt');
 const escapedSlashes = input.replace(/\\/g, '\\\\');
 const escapedQuotes = escapedSlashes.replace(/"/g, '\\"');
 const quoted = escapedQuotes.replace(/(^.|.$)/gm, '"$&');

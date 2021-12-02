@@ -1,13 +1,10 @@
-import * as path from "path";
-import { getDirPath } from "../../common/get-dir-path.js";
-import { readTextFile } from "../../common/read-text-file.js";
+import { readInput } from "../../common/read-input.js";
 
 const STARTING_VALUE = 20151125n;
 const MULTIPLIER = 252533n;
 const DIVIDER = 33554393n;
 
-const dirPath = getDirPath(import.meta.url);
-const input = await readTextFile(path.resolve(dirPath, 'input.txt'));
+const input = await readInput(import.meta.url, './input.txt');
 const [y, x] = input.match(/\d+/g).map(Number);
 const target = { x, y };
 
