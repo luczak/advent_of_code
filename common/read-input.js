@@ -2,7 +2,7 @@ import path, { dirname } from "path";
 import { fileURLToPath } from "url";
 import fs from "fs";
 
-export async function readInput(scriptUrl, inputPath) {
+export function readInput(scriptUrl, inputPath) {
     const dirPath = getDirPath(scriptUrl);
     return readTextFile(path.resolve(dirPath, inputPath));
 }
